@@ -1,0 +1,222 @@
+Reading training data from train/weatherAUS.csv
+Head:
+   Unnamed: 0  MinTemp  MaxTemp  WindGustSpeed  WindSpeed9am  WindSpeed3pm  \
+0       13708      5.8     30.7           48.0          11.0           4.0   
+1       78689     15.4     26.1           39.0           6.0          13.0   
+2       57857      7.7      9.9           50.0          37.0          30.0   
+3        8260      5.2     13.4           56.0          20.0          26.0   
+4       67604      6.6     14.6           61.0          37.0          35.0   
+
+   Humidity9am  Humidity3pm  Pressure9am  Pressure3pm  Temp9am  Temp3pm  \
+0         23.0          4.0       1018.4       1012.8     19.6     29.9   
+1        100.0        100.0       1015.5       1014.0     17.7     16.5   
+2         98.0         99.0       1004.8       1002.8      8.7      7.9   
+3         63.0         55.0       1027.6       1024.5      9.8     11.8   
+4         54.0         39.0       1018.9       1016.3      9.0     12.7   
+
+   Location_Adelaide  Location_Albany  Location_Albury  Location_AliceSprings  \
+0                  0                0                0                      0   
+1                  0                0                0                      0   
+2                  0                0                0                      0   
+3                  0                0                0                      0   
+4                  0                0                0                      0   
+
+   Location_BadgerysCreek  Location_Ballarat  Location_Bendigo  \
+0                       0                  0                 0   
+1                       0                  0                 0   
+2                       0                  1                 0   
+3                       0                  0                 0   
+4                       0                  0                 0   
+
+   Location_Brisbane  Location_Cairns  Location_Canberra  Location_Cobar  \
+0                  0                0                  0               0   
+1                  0                0                  0               0   
+2                  0                0                  0               0   
+3                  0                0                  0               1   
+4                  0                0                  0               0   
+
+   Location_CoffsHarbour  Location_Dartmoor  Location_Darwin  \
+0                      0                  0                0   
+1                      0                  0                0   
+2                      0                  0                0   
+3                      0                  0                0   
+4                      0                  0                0   
+
+   Location_GoldCoast  Location_Hobart  Location_Katherine  \
+0                   0                0                   0   
+1                   0                0                   0   
+2                   0                0                   0   
+3                   0                0                   0   
+4                   0                0                   0   
+
+   Location_Launceston  Location_Melbourne  Location_MelbourneAirport  \
+0                    0                   0                          0   
+1                    0                   0                          0   
+2                    0                   0                          0   
+3                    0                   0                          0   
+4                    0                   1                          0   
+
+   Location_Mildura  Location_Moree  Location_MountGambier  \
+0                 0               1                      0   
+1                 0               0                      0   
+2                 0               0                      0   
+3                 0               0                      0   
+4                 0               0                      0   
+
+   Location_MountGinini  Location_Newcastle  Location_Nhil  \
+0                     0                   0              0   
+1                     0                   0              0   
+2                     0                   0              0   
+3                     0                   0              0   
+4                     0                   0              0   
+
+   Location_NorahHead  Location_NorfolkIsland  Location_Nuriootpa  \
+0                   0                       0                   0   
+1                   0                       0                   0   
+2                   0                       0                   0   
+3                   0                       0                   0   
+4                   0                       0                   0   
+
+   Location_PearceRAAF  Location_Penrith  Location_Perth  \
+0                    0                 0               0   
+1                    0                 0               0   
+2                    0                 0               0   
+3                    0                 0               0   
+4                    0                 0               0   
+
+   Location_PerthAirport  Location_Portland  Location_Richmond  Location_Sale  \
+0                      0                  0                  0              0   
+1                      0                  0                  0              0   
+2                      0                  0                  0              0   
+3                      0                  0                  0              0   
+4                      0                  0                  0              0   
+
+   Location_SalmonGums  Location_Sydney  Location_SydneyAirport  \
+0                    0                0                       0   
+1                    0                0                       0   
+2                    0                0                       0   
+3                    0                0                       0   
+4                    0                0                       0   
+
+   Location_Townsville  Location_Tuggeranong  Location_Uluru  \
+0                    0                     0               0   
+1                    0                     0               0   
+2                    0                     0               0   
+3                    0                     0               0   
+4                    0                     0               0   
+
+   Location_WaggaWagga  Location_Walpole  Location_Watsonia  \
+0                    0                 0                  0   
+1                    0                 0                  1   
+2                    0                 0                  0   
+3                    0                 0                  0   
+4                    0                 0                  0   
+
+   Location_Williamtown  Location_Witchcliffe  Location_Wollongong  \
+0                     0                     0                    0   
+1                     0                     0                    0   
+2                     0                     0                    0   
+3                     0                     0                    0   
+4                     0                     0                    0   
+
+   Location_Woomera  WindGustDir_E  WindGustDir_ENE  WindGustDir_ESE  \
+0                 0              0                0                0   
+1                 0              0                0                0   
+2                 0              0                0                0   
+3                 0              0                0                0   
+4                 0              0                0                0   
+
+   WindGustDir_N  WindGustDir_NE  WindGustDir_NNE  WindGustDir_NNW  \
+0              0               0                1                0   
+1              0               0                0                0   
+2              0               1                0                0   
+3              0               0                0                0   
+4              1               0                0                0   
+
+   WindGustDir_NW  WindGustDir_S  WindGustDir_SE  WindGustDir_SSE  \
+0               0              0               0                0   
+1               0              0               0                0   
+2               0              0               0                0   
+3               0              1               0                0   
+4               0              0               0                0   
+
+   WindGustDir_SSW  WindGustDir_SW  WindGustDir_W  WindGustDir_WNW  \
+0                0               0              0                0   
+1                0               0              0                0   
+2                0               0              0                0   
+3                0               0              0                0   
+4                0               0              0                0   
+
+   WindGustDir_WSW  WindDir9am_E  WindDir9am_ENE  WindDir9am_ESE  \
+0                0             0               0               0   
+1                0             0               0               0   
+2                0             0               0               0   
+3                0             0               0               0   
+4                0             0               0               0   
+
+   WindDir9am_N  WindDir9am_NE  WindDir9am_NNE  WindDir9am_NNW  WindDir9am_NW  \
+0             0              0               0               0              0   
+1             0              1               0               0              0   
+2             1              0               0               0              0   
+3             0              0               0               0              0   
+4             1              0               0               0              0   
+
+   WindDir9am_S  WindDir9am_SE  WindDir9am_SSE  WindDir9am_SSW  WindDir9am_SW  \
+0             0              1               0               0              0   
+1             0              0               0               0              0   
+2             0              0               0               0              0   
+3             0              0               0               1              0   
+4             0              0               0               0              0   
+
+   WindDir9am_W  WindDir9am_WNW  WindDir9am_WSW  WindDir3pm_E  WindDir3pm_ENE  \
+0             0               0               0             0               1   
+1             0               0               0             0               0   
+2             0               0               0             0               0   
+3             0               0               0             0               0   
+4             0               0               0             0               0   
+
+   WindDir3pm_ESE  WindDir3pm_N  WindDir3pm_NE  WindDir3pm_NNE  \
+0               0             0              0               0   
+1               0             0              0               1   
+2               0             0              0               1   
+3               0             0              0               0   
+4               0             1              0               0   
+
+   WindDir3pm_NNW  WindDir3pm_NW  WindDir3pm_S  WindDir3pm_SE  WindDir3pm_SSE  \
+0               0              0             0              0               0   
+1               0              0             0              0               0   
+2               0              0             0              0               0   
+3               0              0             1              0               0   
+4               0              0             0              0               0   
+
+   WindDir3pm_SSW  WindDir3pm_SW  WindDir3pm_W  WindDir3pm_WNW  \
+0               0              0             0               0   
+1               0              0             0               0   
+2               0              0             0               0   
+3               0              0             0               0   
+4               0              0             0               0   
+
+   WindDir3pm_WSW  RainToday_No  RainToday_Yes  RainTomorrow_No  \
+0               0             1              0                1   
+1               0             0              1                0   
+2               0             0              1                0   
+3               0             1              0                0   
+4               0             1              0                1   
+
+   RainTomorrow_Yes  
+0                 0  
+1                 1  
+2                 1  
+3                 1  
+4                 0  
+About to try random forest models with 10, 50, 100, 500, 1000 trees
+10 mean (accuracy, precision, recall): 0.8413481342160534, 0.7352226417381934, 0.43743607867776674
+10 standard deviation (accuracy, precision, recall): 0.0005507481014597713, 0.00815292201882122, 0.004694395903362918
+50 mean (accuracy, precision, recall): 0.8515828799337777, 0.7614919422195118, 0.47366739295312305
+50 standard deviation (accuracy, precision, recall): 0.0019720484907679308, 0.005445959651473905, 0.006575006090524617
+100 mean (accuracy, precision, recall): 0.8534304702232285, 0.7646612040840376, 0.47867573820496406
+100 standard deviation (accuracy, precision, recall): 0.0018914857900815092, 0.005440537874652433, 0.008109417384210556
+500 mean (accuracy, precision, recall): 0.8537398279359703, 0.7672271207779849, 0.4815708562556014
+500 standard deviation (accuracy, precision, recall): 0.0020182068083274417, 0.00668274045265888, 0.0073812873257659214
+1000 mean (accuracy, precision, recall): 0.8543327742291957, 0.7663953698319809, 0.482314358334183
+1000 standard deviation (accuracy, precision, recall): 0.0021487128160776548, 0.0061337529765287235, 0.007497130159284614
