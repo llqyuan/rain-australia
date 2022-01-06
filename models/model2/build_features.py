@@ -58,14 +58,14 @@ def _initial_preprocessing(raw_data_path):
 
 def _model_specific_preprocessing(dataframe):
     '''
-    Preprocessing specific to Model 1. Drop specified columns, impute, etc
+    Preprocessing specific to Model 2. Drop specified columns, impute, etc
     '''
     # ==============================
     # Drop the specified columns
     # ==============================
 
     dataframe.drop(
-        labels=['Sunshine', 'Evaporation', 'LogEvaporation', 'Cloud9am', 'Cloud3pm'], 
+        labels=['Evaporation'], 
         axis=1, inplace=True)
 
     # ==============================
@@ -75,7 +75,8 @@ def _model_specific_preprocessing(dataframe):
     numerical_features = dataframe[[
         'MinTemp', 'MaxTemp', 'WindGustSpeed', 'WindSpeed9am',
         'WindSpeed3pm', 'Humidity9am', 'Humidity3pm', 'Pressure9am',
-        'Pressure3pm', 'Temp9am', 'Temp3pm']].copy()
+        'Pressure3pm', 'Temp9am', 'Temp3pm',
+        'Sunshine', 'LogEvaporation', 'Cloud9am', 'Cloud3pm']].copy()
     median_features_train = numerical_features.dropna().median()
     numerical_features.fillna(median_features_train, inplace=True)
 
