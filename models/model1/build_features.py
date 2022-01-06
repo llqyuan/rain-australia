@@ -1,3 +1,4 @@
+import argparse 
 import numpy as np
 import pandas
 from sklearn.model_selection import train_test_split
@@ -14,11 +15,11 @@ def _get_months_from_date_strings(dates):
         months.append(month)
     return months
 
-def _initial_preprocessing():
+def _initial_preprocessing(raw_data_path):
     '''
     Transformations on the original columns from the raw data
     '''
-    raw_data = pandas.read_csv('../data/raw/weatherAUS.csv')
+    raw_data = pandas.read_csv(raw_data_path)
 
     data = pandas.DataFrame(data={
         'Month': _get_months_from_date_strings(raw_data['Date']),
@@ -94,27 +95,52 @@ def _model_specific_preprocessing(dataframe):
     dataframe_final = pandas.concat([numerical_features, categorical_features], axis=1, join='inner')
     return dataframe_final
 
-def produce_dataframe():
+def produce_dataframe(raw_data_path):
     '''
     Produces the dataframe that will be used for Model 1
     '''
-    df = _initial_preprocessing()
+    df = _initial_preprocessing(raw_data_path)
     return _model_specific_preprocessing(df)
 
-def produce_X_from_dataframe(dataframe):
+def produce_X_y_from_dataframe(dataframe):
     '''
-    Produces the design matrix X (to be used in sklearn fitting) from the dataframe
+    Produces the design matrix and response vector (X, y) in a tuple
+    (to be used in sklearn fitting) from the dataframe
     '''
-    pass
+    feature_column_names = list(dataframe.columns)
+    feature_column_names.remove('RainTomorrow_Yes')
+    feature_column_names.remove('RainTomorrow_No')
+    response_column_name = 'RainTomorrow_Yes'
+
+    df_features = dataframe[[col for col in feature_column_names]].copy()
+    df_response = dataframe[[response_column_name]].copy()
+    return (df_features.values, df_response[response_column_name].values) # (X, y)
+    
 
 if __name__ == '__main__':
-    print('Calling as main -- will produce train and test dataframes and write them to train and test.')
+
+    parser = argparse.ArgumentParser(description='Options for data paths')
+    parser.add_argument('--raw-data-file', dest='raw', 
+                       help='Path to the raw data file weatherAUS.csv',
+                       default='../data/raw/weatherAUS.csv')
+    parser.add_argument('--train-data-file', dest='train', 
+                        help='Which file to write training data to',
+                        default='../data/train/weatherAUS.csv')
+    parser.add_argument('--test-data-file', dest='test', 
+                        help='Which file to write test data to',
+                        default='../data/test/weatherAUS.csv')
+    cli_args = parser.parse_args()
+    cli_args_dict = vars(cli_args)
+
+    print('Calling as main -- will produce train and test dataframes from {0} '
+          'and write them to {1} and {2}.'
+          .format(cli_args_dict['raw'], cli_args_dict['train'], cli_args_dict['test']))
     print('Handling preprocessing...')
     # intend to further subdivide train into training set and cross-validation set in k-fold cross validation
-    data = produce_dataframe()
+    data = produce_dataframe(cli_args_dict['raw'])
     train, test = train_test_split(data, test_size=0.2)
-    train.to_csv('../data/train/weatherAUS.csv', mode='w')
-    print('Wrote to data/train/weatherAUS.csv')
-    test.to_csv('../data/test/weatherAUS.csv', mode='w')
-    print('Wrote to data/test/weatherAUS.csv')
+    train.to_csv(cli_args_dict['train'], mode='w')
+    print('Wrote training data to {0}'.format(cli_args_dict['train']))
+    test.to_csv(cli_args_dict['test'], mode='w')
+    print('Wrote test data to {0}'.format(cli_args_dict['test']))
     
